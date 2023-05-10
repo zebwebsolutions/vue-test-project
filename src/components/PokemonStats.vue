@@ -43,47 +43,39 @@ export default {
       };
 
       const config = {
-  type: 'radar',
-  data: data,
-  options: {
-    scales: {
-      r: {
-        angleLines: {
-          display: false
-        },
-        suggestedMin: 0,
-        suggestedMax: 200,
-      }
-    },
-    plugins: {
-      datalabels: {
-        display: true, // enable the plugin
-        color: '#000',
-        font: {
-          weight: 'bold'
-        },
-        formatter: function(value, context) {
-          const values = context.chart.data.datasets[0].data;
-          const label = context.chart.data.labels[context.dataIndex];
-          const index = context.dataIndex;
-          return `${value} (${values[index]})`;
-        },
-        labels: {
-          title: {
-            color: '#000',
-            font: {
-              weight: 'bold'
+        type: 'radar',
+        data: data,
+        options: {
+          scales: {
+            r: {
+              pointLabels: {
+                font: {
+                  size: 14
+                }
+              },
+              angleLines: {
+                display: false
+              },
+              suggestedMin: 0,
+              suggestedMax: 100,
+            }
+          },
+          plugins: {
+            datalabels: {
+              display: true, // enable the plugin
+              color: '#fff',
+              font: {
+                weight: 'bold'
+              },
+              formatter: function(value, context) {
+                return value
+              },
+              backgroundColor: 'rgb(47, 152, 251)',
             }
           }
-        }
-      }
-    }
-  }
-};
-
-
-
-
+        },
+        plugins: [ChartDataLabels], // include ChartDataLabels plugin instance
+      };
 
       this.chart = new Chart(this.$refs.radarChart, config);
     },
@@ -95,3 +87,9 @@ export default {
   },
 };
 </script>
+
+<style>
+body {
+  color: #000;
+}
+</style>

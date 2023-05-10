@@ -121,8 +121,8 @@ export default {
     grid-template-columns: 50% 50%;
 }
 .details-wrap .details-rhs canvas {
-    width: 450px !important;
-    height: 450px !important;;
+    width: 500px !important;
+    height: 500px !important;;
 }
 .pokemon-name {
     font-size: 36px;
